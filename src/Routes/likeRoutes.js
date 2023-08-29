@@ -1,9 +1,9 @@
 import express from "express";
-import { getLikeRestaurant } from "../Controllers/likeController.js";
+import { getLike} from "../Controllers/likeController.js";
 
 
 const likeRoutes = express.Router();
 
-userRoutes.get("/get-like", getLikeRestaurant);
+likeRoutes.get("/get-like", getLike);
 
 export default likeRoutes;
