@@ -1,10 +1,16 @@
 import { Sequelize } from "sequelize";
-import initMomdels from '../Model/init-models.js';
+import dotenv from "dotenv";
 
-const sequelize = new Sequelize("db_food", "root", "1234", {
-  host: "localhost",
-  port: "3306",
-  dialect: "mysql",
+// dotenv.config(); nếu nó ở ngoài cùng file thì ko cần
+dotenv.config({ path: "./src/.env" });
+import config from "../Config/config.js";
+
+const { db_database, db_user, db_pass, db_host, db_port, db_dialect } = config;
+
+const sequelize = new Sequelize(db_database, db_user, db_pass, {
+  host: db_host,
+  port: db_port,
+  dialect: db_dialect,
 });
 
 export default sequelize;
